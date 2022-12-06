@@ -5,12 +5,12 @@ import java.util.List;
 public class Mechanic {
     public Person person;
 
-    private List<Order> orders;
     private double saldo;
     private float sallaryPart, sallaryWork;
+    private List<Order> orders;
 
     Mechanic(Person person) {
-        Mechanic(person, 0.0, Utils.getRandomFloat(), Utils.getRandomFloat());
+        this(person, 0.0, Utils.randomFloat(), Utils.randomFloat());
     }
 
     Mechanic(Person person, double saldo, float sallaryPart, float sallaryWork) {
@@ -26,12 +26,22 @@ public class Mechanic {
     }
 
     public double getSaldo() {
-        return saldo + person.getSaldo();
+        double workerSaldo = 0;
+
+        for (Order o : orders)
+            workerSaldo += o.getPrice(sallaryPart, sallaryWork);
+
+        return workerSaldo + person.getSaldo();
     }
 
     public void showOrders() {
         System.out.println(String.format("Orders for %s", this));
+
         for (Order o : orders)
             System.out.println(o);
+    }
+
+    public void addOrder(Order o) {
+        orders.add(o);
     }
 }

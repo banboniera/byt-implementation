@@ -13,8 +13,8 @@ public class Person {
     private List<Permission> permissions;
 
     Person() {
-        Person(Utils.getRandomString(), Utils.getRandomString(), Utils.getRandomString(), Utils.getRandomDate(), 0.0,
-                Utils.getRandomString());
+        this(Utils.getRandomName(), Utils.getRandomName(), Utils.getRandomPhone(), Utils.getRandomBirthDate(), 0.0,
+                Utils.getRandomPassword());
     }
 
     Person(String name, String surname, String phone, Date dateOfBirtday, double saldo, String password) {
@@ -33,19 +33,15 @@ public class Person {
     }
 
     public double getSaldo() {
-        return this.saldo;
-    }
-
-    public boolean hasPermission(Permission p) {
-        return this.permissions.contains(p);
+        return saldo;
     }
 
     public boolean verify(String phone) {
         return this.phone == phone;
     }
 
-    public boolean checkPassword(String password) {
-        return this.password.equals(password);
+    public boolean hasPermission(Permission p) {
+        return permissions.contains(p);
     }
 
     public void addPermission(Permission p) {
@@ -55,5 +51,9 @@ public class Person {
 
     public void removePermission(Permission p) {
         this.permissions.remove(p);
+    }
+
+    public boolean checkPassword(String password) {
+        return this.password.equals(password);
     }
 }
