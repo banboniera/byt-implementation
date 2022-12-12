@@ -7,7 +7,7 @@ public class Utils {
     private static final String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final String NU = "1234567890";
 
-    private static Random rand;
+    private static Random rand = new Random();;
     private static long ms;
 
     public static Date getRandomBirthDate() {

@@ -9,7 +9,7 @@ public class Mechanic {
     private float sallaryPart, sallaryWork;
     private List<Order> orders;
 
-    Mechanic(Person person) {
+    public Mechanic(Person person) {
         this(person, 0.0, Utils.randomFloat(), Utils.randomFloat());
     }
 

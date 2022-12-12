@@ -12,7 +12,7 @@ public class Person {
     private double saldo;
     private List<Permission> permissions;
 
-    Person() {
+    public Person() {
         this(Utils.getRandomName(), Utils.getRandomName(), Utils.getRandomPhone(), Utils.getRandomBirthDate(), 0.0,
                 Utils.getRandomPassword());
     }
@@ -45,15 +45,15 @@ public class Person {
     }
 
     public void addPermission(Permission p) {
-        this.permissions.add(p);
+        permissions.add(p);
         System.out.println(String.format("%s now has permission: %s", this, p.name));
     }
 
     public void removePermission(Permission p) {
-        this.permissions.remove(p);
+        permissions.remove(p);
     }
 
     public boolean checkPassword(String password) {
-        return this.password.equals(password);
+        return password.equals(password);
     }
 }
