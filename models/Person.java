@@ -1,5 +1,6 @@
 package models;
 
+import java.security.Permission;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,7 +8,6 @@ import java.util.List;
 public class Person {
     public String name, surname, phone;
     public Date dateOfBirtday;
-
     private String password;
     private double saldo;
     private List<Permission> permissions;
@@ -17,7 +17,7 @@ public class Person {
                 Utils.getRandomPassword());
     }
 
-    Person(String name, String surname, String phone, Date dateOfBirtday, double saldo, String password) {
+    public Person(String name, String surname, String phone, Date dateOfBirtday, double saldo, String password) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -46,7 +46,7 @@ public class Person {
 
     public void addPermission(Permission p) {
         permissions.add(p);
-        System.out.println(String.format("%s now has permission: %s", this, p.name));
+        System.out.println(String.format("%s now has permission: %s", this, p.getName()));
     }
 
     public void removePermission(Permission p) {
@@ -54,6 +54,6 @@ public class Person {
     }
 
     public boolean checkPassword(String password) {
-        return password.equals(password);
+        return this.password.equals(password);
     }
 }

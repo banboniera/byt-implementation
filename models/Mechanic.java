@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Mechanic {
@@ -7,20 +8,20 @@ public class Mechanic {
 
     private double saldo;
     private float sallaryPart, sallaryWork;
-    private List<Order> orders;
+    private List<Order> orders = new ArrayList<Order>();
 
     public Mechanic(Person person) {
         this(person, 0.0, Utils.randomFloat(), Utils.randomFloat());
     }
 
-    Mechanic(Person person, double saldo, float sallaryPart, float sallaryWork) {
+    public Mechanic(Person person, double saldo, float sallaryPart, float sallaryWork) {
         this.person = person;
         this.saldo = saldo;
         this.sallaryPart = sallaryPart;
         this.sallaryWork = sallaryWork;
     }
 
-    @Override
+   @Override
     public String toString() {
         return "worker " + person;
     }
@@ -37,7 +38,8 @@ public class Mechanic {
     public void showOrders() {
         System.out.println(String.format("Orders for %s", this));
 
-        for (Order o : orders)
+
+       for (Order o : orders)
             System.out.println(o);
     }
 
